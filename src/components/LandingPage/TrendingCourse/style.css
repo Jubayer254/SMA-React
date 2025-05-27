@@ -1,0 +1,100 @@
+/* Custom arrow styling with entrance animation */
+.slick-prev, 
+.slick-next {
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 10;
+  border: none;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  backdrop-filter: blur(2px);
+  position: absolute;
+}
+
+.slick-prev {
+  left: 0 !important;
+  transform: translate(-30px, -50%); /* Start hidden to the left */
+}
+
+.slick-next {
+  right: 0 !important;
+  transform: translate(30px, -50%); /* Start hidden to the right */
+}
+
+.slick-prev:before, 
+.slick-next:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-top: 3px solid #333;
+  border-right: 3px solid #333;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.slick-prev:before {
+  transform: rotate(-135deg);
+  left: 3px;
+}
+
+.slick-next:before {
+  transform: rotate(45deg);
+  left: -3px;
+}
+
+/* Hover effects with sliding animation */
+.tiny-slider:hover .slick-prev {
+  opacity: 0.9;
+  transform: translate(25px, -50%); /* Slide in from left */
+}
+
+.tiny-slider:hover .slick-next {
+  opacity: 0.9;
+  transform: translate(-25px, -50%); /* Slide in from right */
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  border-top-color: #ffffff;
+  border-right-color: #ffffff;
+}
+
+/* Card adjustments */
+.card {
+  margin: 0 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slick-prev, 
+  .slick-next {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .tiny-slider:hover .slick-prev {
+    transform: translate(15px, -50%);
+  }
+  
+  .tiny-slider:hover .slick-next {
+    transform: translate(-15px, -50%);
+  }
+}
